@@ -22,5 +22,6 @@ public class MainActivity extends AppCompatActivity {
         else {
             startActivity(new Intent(this, AtyLogin.class));
         }
+        finish();
     }
 }
