@@ -10,6 +10,8 @@ public class Config {
 
     public static final String KEY_TOKEN = "token";
     public static final String APP_ID = "com.example.liuk.secret";
+    public static final String CHARSET = "utf-8";
+
 
     public static String getCachedToken(Context context)
     {
