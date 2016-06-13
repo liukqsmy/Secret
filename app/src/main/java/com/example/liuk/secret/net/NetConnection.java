@@ -39,7 +39,7 @@ public class NetConnection {
                             bw.write(paramStr.toString());
                             break;
                         default:
-                            uc = new
+                            //uc = new
                             break;
 
                     }
