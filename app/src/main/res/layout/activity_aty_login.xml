@@ -28,6 +28,7 @@
             android:singleLine="true"
             android:id="@+id/etPhoneNum"/>
         <Button
+            android:id="@+id/btnGetCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/getCode"/>
