@@ -33,6 +33,7 @@ public class AtyLogin extends AppCompatActivity {
 
                     @Override
                     public void onSuccess() {
+                        pd.dismiss();
                         Toast.makeText(AtyLogin.this, R.string.success_to_get_code, Toast.LENGTH_LONG).show();
 
                     }
@@ -40,6 +41,7 @@ public class AtyLogin extends AppCompatActivity {
 
                     @Override
                     public void onFail() {
+                        pd.dismiss();
                         Toast.makeText(AtyLogin.this, R.string.fail_to_get_code, Toast.LENGTH_LONG).show();
 
                     }
