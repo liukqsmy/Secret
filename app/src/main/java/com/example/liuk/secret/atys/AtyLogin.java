@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import com.example.liuk.secret.R;
 import com.example.liuk.secret.net.GetCode;
+import com.example.liuk.secret.net.Login;
+
+import org.w3c.dom.Text;
 
 public class AtyLogin extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class AtyLogin extends AppCompatActivity {
         setContentView(R.layout.activity_aty_login);
 
         etPhone = (EditText)findViewById(R.id.etPhoneNum);
+        etCode = (EditText)findViewById(R.id.etCode);
 
         findViewById(R.id.btnGetCode).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +55,33 @@ public class AtyLogin extends AppCompatActivity {
 
         });
 
+        findViewById(R.id.btnLogin).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(TextUtils.isEmpty(etPhone.getText())){
+                    Toast.makeText(AtyLogin.this, R.string.phone_num_cannot_be_empty, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(etCode.getText())){
+                    Toast.makeText(AtyLogin.this, R.string.code_can_not_be_empty, Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                /*new Login(phone_md5, etCode.getText().toString(), new Login.SuccessCallback(){
+                    @Override
+                    public void onSuccess(String token) {
+
+                    }
+                },new Login.FailCallback(){
+                    @Override
+                    public void onFail() {
+
+                    }
+                });*/
+            }
+        });
     }
 
-    private EditText etPhone = null;
+    private EditText etPhone = null,etCode;
 }

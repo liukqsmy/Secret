@@ -40,6 +40,7 @@ public class NetConnection {
                             uc.setDoOutput(true);
                             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(uc.getOutputStream(), Config.CHARSET));
                             bw.write(paramStr.toString());
+                            bw.flush();
                             break;
                         default:
                             uc = new URL(url + "?" + paramStr.toString()).openConnection();
