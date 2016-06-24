@@ -1,6 +1,7 @@
 package com.example.liuk.secret.atys;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,9 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.liuk.secret.Config;
 import com.example.liuk.secret.R;
 import com.example.liuk.secret.net.GetCode;
 import com.example.liuk.secret.net.Login;
+import com.example.liuk.secret.tools.MD5Tool;
 
 import org.w3c.dom.Text;
 
@@ -68,17 +71,26 @@ public class AtyLogin extends AppCompatActivity {
                     return;
                 }
 
-                /*new Login(phone_md5, etCode.getText().toString(), new Login.SuccessCallback(){
+                new Login(MD5Tool.md5(etPhone.getText().toString()), etCode.getText().toString(), new Login.SuccessCallback(){
                     @Override
                     public void onSuccess(String token) {
+                        Config.cacheToken(AtyLogin.this, token);
+                        Config.cachePhoneNum(AtyLogin.this, etPhone.getText().toString());
 
+                        Intent i = new Intent(AtyLogin.this, AtyTimeline.class);
+                        i.putExtra(Config.KEY_TOKEN, token);
+                        i.putExtra(Config.KEY_PHONE_NUM, etPhone.getText().toString());
+
+                        startActivity(i);
+
+                        finish();
                     }
                 },new Login.FailCallback(){
                     @Override
                     public void onFail() {
-
+                        Toast.makeText(AtyLogin.this, R.string.fail_to_login,Toast.LENGTH_LONG).show();
                     }
-                });*/
+                });
             }
         });
     }
