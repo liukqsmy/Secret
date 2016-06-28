@@ -17,7 +17,7 @@ public class Config {
     public static final String APP_ID = "com.example.liuk.secret";
     public static final String CHARSET = "utf-8";
     //public static final String SERVER_URL = "http://demo.eoeschool.com/api/v1/nimings/io";
-    public static final String SERVER_URL = "http://192.168.1.100:8080/TestServer/api.jsp?action=send_pass";
+    public static final String SERVER_URL = "http://192.168.1.100:8080/TestServer/api.jsp";
 
 
     public static final String ACTION_GETCODE = "send_pass";
